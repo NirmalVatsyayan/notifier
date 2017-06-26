@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div
+          id="data"
+          ngModelGroup="data"
+          #userData="ngModelGroup">
+          <div class="form-group">
+            <label for="Header">Header</label>
+            <input
+              type="text"
+              id="Header"
+              class="form-control"
+              ngModel
+              name="header"
+              minlength="20"
+              maxlength="150"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="Payload">Payload</label>
+            <input
+              type="text"
+              id="Payload"
+              class="form-control"
+              ngModel
+              name="payload"
+              minlength="20"
+              maxlength="300"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="ImageUrl">ImageUrl</label>
+            <input
+              type="text"
+              id="ImageUrl"
+              class="form-control"
+              ngModel
+              name="imageUrl"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="UserQuery">UserQuery</label>
+            <input
+              type="text"
+              id="UserQuery"
+              class="form-control"
+              ngModel
+              name="userQuery"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="NotificationTime">NotificationTime</label>
+            <input
+              type="text"
+              id="NotificationTime"
+              class="form-control"
+              ngModel
+              name="notification_time"
+              required>
+          </div>
+        </div>
+        <p *ngIf="!data.valid && data.touched">Data is invalid!</p>
+
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!f.valid">Submit</button>
+      </form>
+    </div>
+  </div>
+  <hr>
+  <div class="row" *ngIf="submitted">
+    <div class="col-xs-12">
+      <h3>Your Data</h3>
+      <p>Header: {{ data.header }}</p>
+      <p>Payload: {{ data.payload }}</p>
+      <p>ImageUrl: {{ data.imageUrl }}</p>
+      <p>UserQuery: {{ data.userQuery }}</p>
+      <p>NotificationTime: {{ data.notification_time }}</p>
+    </div>
+  </div>
+</div>
